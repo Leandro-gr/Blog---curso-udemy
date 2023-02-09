@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class Post(models.Model):
     STATS =  (
@@ -16,6 +17,9 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     changed = models.DateTimeField(auto_now=True)
     stats = models.CharField(max_length=10, choices=STATS, default='rascunho')
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[self.slug])
 
     class Meta:
         ordering = ('posted',)
