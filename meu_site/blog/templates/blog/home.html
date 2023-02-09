@@ -3,7 +3,7 @@
 {% block content %}
 
     {% for post in object_list %}
-        <h1> {{ post.title }} </h1>
+        <h2><a href="#"> {{ post.title }} </a></h2>
         <p> {{ post.contents }} </p>
 
     {% endfor %}
