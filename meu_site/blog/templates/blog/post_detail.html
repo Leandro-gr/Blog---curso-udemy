@@ -2,8 +2,8 @@
 {% block title %} Detalhes {% endblock title %}
 {% block content %}
     <div class="post-entry">
-        <h2> {{ custom.title }} </h2>
-        <p> {{ custom.contents }} </p>
+        <h2> {{ object.title }} </h2>
+        <p> {{ object.contents }} </p>
     </div>
-
+    <a href="{{ post.get_absolute_url_2 }}"> Editar Postagem </a>
 {% endblock content %}
