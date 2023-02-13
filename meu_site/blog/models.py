@@ -24,6 +24,9 @@ class Post(models.Model):
     def get_absolute_url_2(self):
         return reverse('post_edit', args=[self.pk])
 
+    def get_absolute_url_3(self):
+        return reverse('post_delete', args=[self.pk])
+
     class Meta:
         ordering = ('posted',)
 
