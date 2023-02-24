@@ -53,7 +53,7 @@
                         <a class="nav-link" href="{% url 'post_new' %}">+ Nova Postagem no Blog</a>
                     </li>
                     <li class="nav-item">{{user.username}}</li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">logout</li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">logout</a></li>
                     {% else %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">login</a></li>
                     {% endif %}

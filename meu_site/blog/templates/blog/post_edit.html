@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
-{% block title %} Blog - Editar Postagem {% endblock title %}
+{% load bootstrap %}
+{% block title %} Blog - Editar a Postagem {% endblock title %}
 {% block content %}
-<h1>Editar Postagem</h1>
-<form action="" method="post">{% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Editar">
-</form>
+<div class="container justify-content-center">
+    <div class="card" >
+            <div class="card-header">
+                    <h2>Editar a Postagem</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                        {% csrf_token %}
+                        {{ form|bootstrap}}
+                        <button type="submit" class="btn btn-primary">Editar</button>
+                </form>         
+            </div>
+    </div>
+</div>
 {% endblock content %}
