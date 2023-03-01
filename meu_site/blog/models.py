@@ -5,6 +5,18 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.text import slugify
 from django.db.models.signals import post_save
+from ckeditor.fields import RichTextField
+
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+    posted = models.DateTimeField(default=timezone.now)
+    created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "categoria"
+
+    def __str__(self):
+        return self.name
 
 class Post(models.Model):
     STATS =  (
@@ -14,8 +26,10 @@ class Post(models.Model):
 
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250)
-    contents = models.TextField()
+    contents = RichTextField()
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+    category = models.ManyToManyField(Category, related_name='get_posts')
+    image = models.ImageField(upload_to="blog",blank=True, null=True)
     posted = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     changed = models.DateTimeField(auto_now=True)

@@ -3,7 +3,7 @@
 {% block content %}
     <div class="post-entry">
         <h2> {{ object.title }} </h2>
-        <p> {{ object.contents }} </p>
+        <p> {{ object.contents|safe }} </p>
     </div>
     <a href="{{ post.get_absolute_url_2 }}"> Editar Postagem </a>
     <br>
